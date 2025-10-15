@@ -466,23 +466,46 @@ export default function HomePage() {
   }
 
   return (
-    <div className="flex h-screen bg-background">
-      {/* Navigation Header */}
-      <div className="absolute top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="flex items-center justify-between px-4 py-2">
-          <h1 className="text-lg font-semibold">Google Storm</h1>
-          <div className="flex items-center gap-2">
-            <Button size="sm" variant={activeFilters.food_bank ? 'secondary' : 'ghost'} onClick={() => toggleStaticList('food_bank')}>Food Banks</Button>
+    <div className="flex h-screen bg-white">
+      {/* Navigation Header - <kevindo.dev> Design */}
+      <div className="absolute top-0 left-0 right-0 z-50 bg-white shadow-[0_2px_12px_rgba(0,0,0,0.05)]">
+        <div className="flex items-center justify-between px-6 py-3">
+          <h1 className="text-2xl font-bold text-[#212121]">
+            &lt;kevindo.dev&gt;
+          </h1>
+          <div className="flex items-center gap-3">
+            <Button 
+              size="sm" 
+              variant={activeFilters.food_bank ? 'default' : 'outline'} 
+              onClick={() => toggleStaticList('food_bank')}
+              className="rounded-[10px]"
+            >
+              Food Banks
+            </Button>
 
-            <Button size="sm" variant={(activeFilters.shelter || emergencyMode) ? 'secondary' : 'ghost'} onClick={() => toggleStaticList('shelter')}>Shelters</Button>
+            <Button 
+              size="sm" 
+              variant={(activeFilters.shelter || emergencyMode) ? 'default' : 'outline'} 
+              onClick={() => toggleStaticList('shelter')}
+              className="rounded-[10px]"
+            >
+              Shelters
+            </Button>
 
-            <Button size="sm" variant={activeFilters.clinic ? 'secondary' : 'ghost'} onClick={() => toggleStaticList('clinic')}>Clinics</Button>
+            <Button 
+              size="sm" 
+              variant={activeFilters.clinic ? 'default' : 'outline'} 
+              onClick={() => toggleStaticList('clinic')}
+              className="rounded-[10px]"
+            >
+              Clinics
+            </Button>
           </div>
         </div>
       </div>
 
       {/* Chat Panel */}
-      <div className="w-full md:w-96 flex-shrink-0 border-r border-border pt-12 flex flex-col h-screen">
+      <div className="w-full md:w-96 flex-shrink-0 border-r border-[#E0E0E0] pt-14 flex flex-col h-screen bg-white">
         <div className="flex-1 min-h-0">
           <ChatPanel
             onSubmitChat={handleChatSubmit}
@@ -514,10 +537,10 @@ export default function HomePage() {
       )}
 
       {/* Map Panel */}
-      <div className="flex-1 relative">
+      <div className="flex-1 relative bg-[#F8F9FA]">
         {/* Weather Alert Banner */}
         {userLocation && (
-          <div className="absolute top-0 left-0 right-0 z-40 pt-12">
+          <div className="absolute top-0 left-0 right-0 z-40 pt-14">
             <WeatherAlertBanner lat={userLocation.lat} lng={userLocation.lng} />
           </div>
         )}

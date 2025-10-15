@@ -1,0 +1,206 @@
+{
+    "meta": {
+      "brand": "<kevindo.dev>",
+      "theme": "Sustainable Minimalism",
+      "styleLanguage": "Clean, modern, green-accented eco aesthetic",
+      "fontFamily": "'Inter', 'Helvetica Neue', sans-serif",
+      "fontWeights": {
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      },
+      "baseSpacingUnit": "8px",
+      "borderRadiusScale": {
+        "sm": "6px",
+        "md": "12px",
+        "lg": "16px",
+        "xl": "24px"
+      }
+    },
+    "colorPalette": {
+      "primary": "#34C759",
+      "primaryDark": "#2BA84A",
+      "primaryLight": "#A8E6A1",
+      "neutralWhite": "#FFFFFF",
+      "neutralGrayLight": "#F8F9FA",
+      "neutralGray": "#E0E0E0",
+      "neutralDark": "#333333",
+      "textPrimary": "#212121",
+      "textSecondary": "#4F4F4F",
+      "textAccent": "#34C759",
+      "shadowBase": "rgba(0, 0, 0, 0.1)"
+    },
+    "elementStyling": {
+      "layout": {
+        "background": "#FFFFFF",
+        "sectionSpacing": "96px 0",
+        "maxContentWidth": "1280px"
+      },
+      "navbar": {
+        "background": "#FFFFFF",
+        "shadow": "0 2px 12px rgba(0,0,0,0.05)",
+        "link": {
+          "default": "#222222",
+          "hover": "#34C759",
+          "activeUnderlineColor": "#34C759"
+        },
+        "buttonPrimary": {
+          "background": "#34C759",
+          "text": "#FFFFFF",
+          "hover": {
+            "background": "#2BA84A"
+          },
+          "radius": "10px",
+          "shadow": "0 4px 8px rgba(52,199,89,0.3)"
+        }
+      },
+      "heroSection": {
+        "background": {
+          "type": "image-overlay",
+          "image": "forest-aerial",
+          "overlayColor": "rgba(0,0,0,0.3)"
+        },
+        "heading": {
+          "color": "#FFFFFF",
+          "size": "72px",
+          "weight": 700,
+          "lineHeight": "1.1"
+        },
+        "subheading": {
+          "color": "#FFFFFF",
+          "size": "20px",
+          "weight": 400,
+          "lineHeight": "1.5"
+        },
+        "ctaButton": {
+          "background": "#34C759",
+          "text": "#FFFFFF",
+          "hover": {
+            "background": "#2BA84A"
+          },
+          "radius": "12px"
+        }
+      },
+      "cards": {
+        "background": "#FFFFFF",
+        "border": "#E0E0E0",
+        "radius": "16px",
+        "shadow": "0 4px 12px rgba(0,0,0,0.08)",
+        "padding": "32px",
+        "hover": {
+          "shadow": "0 6px 16px rgba(0,0,0,0.1)",
+          "transform": "translateY(-2px)"
+        },
+        "title": {
+          "color": "#212121",
+          "weight": 600,
+          "size": "20px"
+        },
+        "bodyText": {
+          "color": "#4F4F4F",
+          "size": "16px",
+          "weight": 400
+        },
+        "icons": {
+          "fill": "#34C759",
+          "background": "rgba(52,199,89,0.1)",
+          "radius": "50%"
+        }
+      },
+      "buttons": {
+        "primary": {
+          "background": "#34C759",
+          "text": "#FFFFFF",
+          "icon": "#FFFFFF",
+          "shadow": "0 4px 8px rgba(52,199,89,0.3)",
+          "hover": {
+            "background": "#2BA84A"
+          },
+          "active": {
+            "background": "#1E7C36"
+          },
+          "disabled": {
+            "background": "#C7EAC5",
+            "text": "#FFFFFF"
+          },
+          "radius": "10px"
+        },
+        "secondary": {
+          "background": "#FFFFFF",
+          "border": "1px solid #34C759",
+          "text": "#34C759",
+          "hover": {
+            "background": "#F3FFF3"
+          },
+          "radius": "10px"
+        },
+        "textOnly": {
+          "text": "#34C759",
+          "hover": {
+            "textDecoration": "underline"
+          }
+        }
+      },
+      "typography": {
+        "heading1": {
+          "color": "#212121",
+          "size": "56px",
+          "weight": 700
+        },
+        "heading2": {
+          "color": "#212121",
+          "size": "40px",
+          "weight": 600
+        },
+        "heading3": {
+          "color": "#212121",
+          "size": "28px",
+          "weight": 600
+        },
+        "paragraph": {
+          "color": "#4F4F4F",
+          "size": "16px",
+          "weight": 400,
+          "lineHeight": "1.6"
+        },
+        "caption": {
+          "color": "#6B6B6B",
+          "size": "14px",
+          "weight": 400
+        }
+      },
+      "icons": {
+        "defaultFill": "#34C759",
+        "containerBackground": "#FFFFFF",
+        "radius": "50%",
+        "shadow": "none",
+        "hover": {
+          "fill": "#2BA84A"
+        }
+      },
+      "shadows": {
+        "cardShadow": "0 4px 12px rgba(0,0,0,0.08)",
+        "buttonShadow": "0 4px 8px rgba(52,199,89,0.3)",
+        "navbarShadow": "0 2px 12px rgba(0,0,0,0.05)"
+      },
+      "gradients": {
+        "heroOverlay": "linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 100%)",
+        "accentBackground": "linear-gradient(135deg, #34C759 0%, #2BA84A 100%)"
+      },
+      "states": {
+        "hoverAnimation": "transition: all 0.2s ease-in-out",
+        "focusOutline": "2px solid #34C759",
+        "activePress": "scale(0.98)"
+      }
+    },
+    "doNotRules": {
+      "1": "DO NOT apply gradients meant for hero sections to card backgrounds.",
+      "2": "DO NOT use primary button green (#34C759) on paragraph text.",
+      "3": "DO NOT apply drop shadows to text elements; restrict to cards and buttons.",
+      "4": "DO NOT use icon background gradients; icons should remain flat with solid fill.",
+      "5": "DO NOT mix neutral gray borders (#E0E0E0) with accent green text unless in secondary buttons.",
+      "6": "DO NOT add hover transformations on headings — reserve motion for CTAs and cards only."
+    }
+  }
+  

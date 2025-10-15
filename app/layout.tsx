@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
+import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -9,10 +8,17 @@ if (process.env.NODE_ENV === 'development') {
   import('@/lib/weather-test-utils')
 }
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
+})
+
 export const metadata: Metadata = {
-  title: 'Google Storm - Crisis Resource Finder',
-  description: 'Find emergency shelters, food banks, and clinics in your area during crisis situations.',
-  keywords: ['emergency', 'crisis', 'shelter', 'food bank', 'clinic', 'disaster relief'],
+  title: '<kevindo.dev> - Sustainable Crisis Resource Finder',
+  description: 'Find emergency shelters, food banks, and clinics in your area during crisis situations. Powered by sustainable technology.',
+  keywords: ['emergency', 'crisis', 'shelter', 'food bank', 'clinic', 'disaster relief', 'sustainable', 'green'],
 }
 
 export default function RootLayout({
@@ -22,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

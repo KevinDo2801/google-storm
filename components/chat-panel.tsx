@@ -91,29 +91,31 @@ export function ChatPanel({ onSubmitChat, onEmergencyToggle, onHurricaneToggle, 
   }
 
   return (
-    <div className="flex flex-col h-full bg-card">
+    <div className="flex flex-col h-full bg-white">
       {/* Header */}
-      <div className="p-6 border-b border-border flex-shrink-0">
-        <h1 className="text-2xl font-bold text-foreground mb-4">Google Storm</h1>
+      <div className="p-6 border-b border-[#E0E0E0] flex-shrink-0">
+        <h1 className="text-2xl font-bold text-[#212121] mb-4">
+          &lt;kevindo.dev&gt;
+        </h1>
 
         {/* Emergency Mode Toggle */}
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between mb-3 p-3 rounded-[12px] bg-[#F8F9FA] hover:bg-[#E0E0E0]/50 transition-all">
           <div className="flex items-center gap-2">
-            <AlertTriangle className={`w-5 h-5 ${emergencyMode ? "text-destructive" : "text-muted-foreground"}`} />
-            <span className="text-sm font-medium">Emergency Mode</span>
+            <AlertTriangle className={`w-5 h-5 ${emergencyMode ? "text-[#dc2626]" : "text-[#4F4F4F]"}`} />
+            <span className="text-sm font-medium text-[#212121]">Emergency Mode</span>
           </div>
           <Switch
             checked={emergencyMode}
             onCheckedChange={onEmergencyToggle}
-            className="data-[state=checked]:bg-destructive"
+            className="data-[state=checked]:bg-[#dc2626]"
           />
         </div>
 
         {/* Hurricane Display Toggle */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between p-3 rounded-[12px] bg-[#F8F9FA] hover:bg-[#E0E0E0]/50 transition-all">
           <div className="flex items-center gap-2">
-            <Wind className={`w-5 h-5 ${hurricaneMode ? "text-orange-600" : "text-muted-foreground"}`} />
-            <span className="text-sm font-medium">Hurricane Display</span>
+            <Wind className={`w-5 h-5 ${hurricaneMode ? "text-orange-600" : "text-[#4F4F4F]"}`} />
+            <span className="text-sm font-medium text-[#212121]">Hurricane Display</span>
           </div>
           <Switch
             checked={hurricaneMode}
@@ -125,7 +127,7 @@ export function ChatPanel({ onSubmitChat, onEmergencyToggle, onHurricaneToggle, 
         {/* Weather Settings Button */}
         <div className="flex justify-center mt-4">
           <WeatherSettingsModal>
-            <Button variant="outline" size="sm" className="w-full">
+            <Button variant="outline" size="sm" className="w-full rounded-[10px] border-[#34C759] text-[#34C759] hover:bg-[#F3FFF3]">
               <Settings className="w-4 h-4 mr-2" />
               Weather Alert Settings
             </Button>
@@ -137,7 +139,7 @@ export function ChatPanel({ onSubmitChat, onEmergencyToggle, onHurricaneToggle, 
           <Button 
             variant="outline" 
             size="sm" 
-            className="w-full"
+            className="w-full rounded-[10px] border-[#34C759] text-[#34C759] hover:bg-[#F3FFF3]"
             onClick={() => onToggleCrowdDensity?.(!showCrowdDensity)}
           >
             {showCrowdDensity ? <EyeOff className="w-4 h-4 mr-2" /> : <Eye className="w-4 h-4 mr-2" />}
@@ -148,7 +150,7 @@ export function ChatPanel({ onSubmitChat, onEmergencyToggle, onHurricaneToggle, 
 
       {/* Weather Panel - Fixed at top */}
       {userLocation && (
-        <div className="p-4 border-b border-border bg-background flex-shrink-0">
+        <div className="p-4 border-b border-[#E0E0E0] bg-white flex-shrink-0">
           <WeatherPanel lat={userLocation.lat} lng={userLocation.lng} />
         </div>
       )}
@@ -158,8 +160,10 @@ export function ChatPanel({ onSubmitChat, onEmergencyToggle, onHurricaneToggle, 
         {messages.map((message) => (
           <div key={message.id} className={`flex ${message.isUser ? "justify-end" : "justify-start"}`}>
             <Card
-              className={`max-w-[80%] p-3 ${
-                message.isUser ? "bg-primary text-primary-foreground" : "bg-secondary text-secondary-foreground"
+              className={`max-w-[80%] p-3 rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.08)] ${
+                message.isUser 
+                  ? "bg-[#34C759] text-white" 
+                  : "bg-white text-[#212121] border border-[#E0E0E0]"
               }`}
             >
               <p className="text-sm break-words">{message.text}</p>
@@ -170,15 +174,20 @@ export function ChatPanel({ onSubmitChat, onEmergencyToggle, onHurricaneToggle, 
       </div>
 
       {/* Input Form */}
-      <div className="p-4 border-t border-border flex-shrink-0">
+      <div className="p-4 border-t border-[#E0E0E0] flex-shrink-0 bg-white">
         <form onSubmit={handleSubmit} className="flex gap-2">
           <Input
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             placeholder="Ask in English or Español…"
-            className="flex-1 h-12 text-base"
+            className="flex-1 h-12 text-base rounded-[10px] border-[#E0E0E0] focus:border-[#34C759] focus:ring-[#34C759]"
           />
-          <Button type="submit" size="lg" className="h-12 px-4" disabled={isLoading}>
+          <Button 
+            type="submit" 
+            size="lg" 
+            className="h-12 px-4 rounded-[10px] bg-[#34C759] hover:bg-[#2BA84A] shadow-[0_4px_8px_rgba(52,199,89,0.3)]" 
+            disabled={isLoading}
+          >
             <Send className="w-5 h-5" />
           </Button>
         </form>

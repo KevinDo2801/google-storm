@@ -76,22 +76,22 @@ export function CrowdDensityPanel({ zones, showPanel, onClose, onZoneClick }: Cr
   const sortedZones = zones.sort((a, b) => b.crowdingScore - a.crowdingScore)
 
   return (
-    <div className="w-full md:w-96 flex-shrink-0 border-r border-border pt-12 flex flex-col bg-card">
+    <div className="w-full md:w-96 flex-shrink-0 border-r border-[#E0E0E0] pt-14 flex flex-col bg-white">
       {/* Header */}
-      <div className="p-6 border-b border-border">
+      <div className="p-6 border-b border-[#E0E0E0]">
         <div className="flex items-center justify-between mb-4">
-          <h1 className="text-2xl font-bold text-foreground">Population Density</h1>
+          <h1 className="text-2xl font-bold text-[#212121]">Population Density</h1>
           <Button
             variant="ghost"
             size="icon"
             onClick={onClose}
-            className="h-6 w-6 text-muted-foreground hover:text-foreground"
+            className="h-6 w-6 text-[#4F4F4F] hover:text-[#212121] rounded-[6px]"
           >
             <EyeOff className="h-4 w-4" />
           </Button>
         </div>
         
-        <div className="text-sm text-muted-foreground">
+        <div className="text-sm text-[#4F4F4F]">
           Areas to avoid (red) or seek (green) based on crowd density
         </div>
       </div>
@@ -101,7 +101,7 @@ export function CrowdDensityPanel({ zones, showPanel, onClose, onZoneClick }: Cr
         {sortedZones.map((zone) => (
           <Card 
             key={zone.id} 
-            className={`group p-4 transition-all duration-200 cursor-pointer hover:shadow-lg hover:scale-[1.02] hover:bg-accent/50 ${
+            className={`group p-4 transition-all duration-200 cursor-pointer hover:shadow-[0_6px_16px_rgba(0,0,0,0.1)] hover:scale-[1.02] rounded-[12px] ${
               zone.riskLevel === 'high' || zone.riskLevel === 'very_high' 
                 ? 'hover:border-red-300 hover:bg-red-50/50' 
                 : zone.riskLevel === 'medium'
@@ -116,26 +116,26 @@ export function CrowdDensityPanel({ zones, showPanel, onClose, onZoneClick }: Cr
                   {getRiskIcon(zone.riskLevel)}
                 </div>
                 <div className="flex-1">
-                  <div className="font-medium text-sm mb-1 group-hover:text-foreground transition-colors">
+                  <div className="font-medium text-sm mb-1 text-[#212121] group-hover:text-[#34C759] transition-colors">
                     {zone.name}
                   </div>
-                  <div className="text-xs text-muted-foreground mb-2 group-hover:text-foreground/80 transition-colors">
+                  <div className="text-xs text-[#4F4F4F] mb-2 group-hover:text-[#212121] transition-colors">
                     {zone.distance.toFixed(1)}km away • {zone.population.toLocaleString()} people
                   </div>
-                  <div className="text-xs text-muted-foreground group-hover:text-foreground/80 transition-colors">
+                  <div className="text-xs text-[#6B6B6B] group-hover:text-[#4F4F4F] transition-colors">
                     {zone.description}
                   </div>
                 </div>
               </div>
               
               <div className="text-right space-y-1">
-                <Badge className={`${getRiskBadgeColor(zone.riskLevel)} transition-all duration-200 group-hover:scale-105`}>
+                <Badge className={`${getRiskBadgeColor(zone.riskLevel)} transition-all duration-200 group-hover:scale-105 rounded-[6px]`}>
                   {zone.riskLevel.replace('_', ' ')}
                 </Badge>
-                <div className="text-xs text-muted-foreground group-hover:text-foreground/80 transition-colors">
+                <div className="text-xs text-[#4F4F4F] group-hover:text-[#212121] transition-colors">
                   {getDensityLabel(zone.density)}
                 </div>
-                <div className="text-xs font-medium group-hover:text-foreground transition-colors">
+                <div className="text-xs font-medium text-[#212121] group-hover:text-[#34C759] transition-colors">
                   Crowd Score: {zone.crowdingScore}/100
                 </div>
               </div>
@@ -145,8 +145,8 @@ export function CrowdDensityPanel({ zones, showPanel, onClose, onZoneClick }: Cr
       </div>
 
       {/* Footer */}
-      <div className="p-4 border-t border-border">
-        <div className="text-xs text-muted-foreground text-center">
+      <div className="p-4 border-t border-[#E0E0E0]">
+        <div className="text-xs text-[#4F4F4F] text-center">
           Updated: {new Date().toLocaleTimeString()}
         </div>
       </div>

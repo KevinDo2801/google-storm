@@ -71,17 +71,17 @@ export function WeatherPanel({ lat, lng, onAlertClick }: WeatherPanelProps) {
 
   if (isLoading) {
     return (
-      <Card className="w-full">
+      <Card className="w-full rounded-[16px] border-[#E0E0E0] shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <CloudRain className="w-5 h-5" />
+          <CardTitle className="flex items-center gap-2 text-[#212121]">
+            <CloudRain className="w-5 h-5 text-[#34C759]" />
             Weather Conditions
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex items-center justify-center py-8">
-            <RefreshCw className="w-6 h-6 animate-spin" />
-            <span className="ml-2">Loading weather data...</span>
+            <RefreshCw className="w-6 h-6 animate-spin text-[#34C759]" />
+            <span className="ml-2 text-[#4F4F4F]">Loading weather data...</span>
           </div>
         </CardContent>
       </Card>
@@ -90,17 +90,17 @@ export function WeatherPanel({ lat, lng, onAlertClick }: WeatherPanelProps) {
 
   if (error || !weatherData) {
     return (
-      <Card className="w-full">
+      <Card className="w-full rounded-[16px] border-[#E0E0E0] shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <CloudRain className="w-5 h-5" />
+          <CardTitle className="flex items-center gap-2 text-[#212121]">
+            <CloudRain className="w-5 h-5 text-[#34C759]" />
             Weather Conditions
           </CardTitle>
         </CardHeader>
         <CardContent>
           <div className="text-center py-4">
-            <p className="text-sm text-muted-foreground mb-4">{error || 'Unable to load weather data'}</p>
-            <Button onClick={() => fetchWeatherData(false)} size="sm">
+            <p className="text-sm text-[#4F4F4F] mb-4">{error || 'Unable to load weather data'}</p>
+            <Button onClick={() => fetchWeatherData(false)} size="sm" className="rounded-[10px] bg-[#34C759] hover:bg-[#2BA84A] shadow-[0_4px_8px_rgba(52,199,89,0.3)]">
               <RefreshCw className="w-4 h-4 mr-2" />
               Retry
             </Button>
@@ -116,21 +116,21 @@ export function WeatherPanel({ lat, lng, onAlertClick }: WeatherPanelProps) {
 
   return (
     <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
-      <Card className="w-full">
+      <Card className="w-full rounded-[16px] border-[#E0E0E0] shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.1)] transition-all">
         <CollapsibleTrigger asChild>
-          <CardHeader className="cursor-pointer hover:bg-muted/50 transition-colors">
+          <CardHeader className="cursor-pointer hover:bg-[#F8F9FA] transition-colors rounded-t-[16px]">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <CardTitle className="flex items-center gap-2">
-                  <CloudRain className="w-5 h-5" />
+                <CardTitle className="flex items-center gap-2 text-[#212121]">
+                  <CloudRain className="w-5 h-5 text-[#34C759]" />
                   Weather Conditions
                 </CardTitle>
                 {!isExpanded && (
                   <div className="flex items-center gap-2 text-sm">
-                    <span className="font-medium">{weatherData.current.temperature}°F</span>
-                    <span className="text-muted-foreground">{weatherData.current.condition}</span>
+                    <span className="font-medium text-[#212121]">{weatherData.current.temperature}°F</span>
+                    <span className="text-[#4F4F4F]">{weatherData.current.condition}</span>
                     {activeAlerts.length > 0 && (
-                      <Badge variant="destructive" className="text-xs">
+                      <Badge variant="destructive" className="text-xs bg-[#dc2626] rounded-[6px]">
                         {activeAlerts.length} alert{activeAlerts.length > 1 ? 's' : ''}
                       </Badge>
                     )}
@@ -147,15 +147,16 @@ export function WeatherPanel({ lat, lng, onAlertClick }: WeatherPanelProps) {
                     size="sm" 
                     variant="outline"
                     disabled={isRefreshing}
+                    className="rounded-[10px] border-[#34C759] text-[#34C759] hover:bg-[#F3FFF3]"
                   >
                     <RefreshCw className={`w-4 h-4 ${isRefreshing ? 'animate-spin' : ''}`} />
                   </Button>
                 )}
-                {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                {isExpanded ? <ChevronUp className="w-4 h-4 text-[#34C759]" /> : <ChevronDown className="w-4 h-4 text-[#34C759]" />}
               </div>
             </div>
             {isExpanded && (
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-[#4F4F4F]">
                 {weatherData.location.name}
               </p>
             )}
@@ -174,29 +175,29 @@ export function WeatherPanel({ lat, lng, onAlertClick }: WeatherPanelProps) {
             {/* Current Weather */}
             <div className="grid grid-cols-2 gap-4">
               <div className="text-center">
-                <div className="text-3xl font-bold">{weatherData.current.temperature}°F</div>
-                <div className="text-sm text-muted-foreground">{weatherData.current.condition}</div>
+                <div className="text-3xl font-bold text-[#212121]">{weatherData.current.temperature}°F</div>
+                <div className="text-sm text-[#4F4F4F]">{weatherData.current.condition}</div>
               </div>
               
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm">
-                  <Droplets className="w-4 h-4" />
+                <div className="flex items-center gap-2 text-sm text-[#4F4F4F]">
+                  <Droplets className="w-4 h-4 text-[#34C759]" />
                   <span>Humidity: {weatherData.current.humidity}%</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <Wind className="w-4 h-4" />
+                <div className="flex items-center gap-2 text-sm text-[#4F4F4F]">
+                  <Wind className="w-4 h-4 text-[#34C759]" />
                   <span>Wind: {weatherData.current.windSpeed} mph</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <Eye className="w-4 h-4" />
+                <div className="flex items-center gap-2 text-sm text-[#4F4F4F]">
+                  <Eye className="w-4 h-4 text-[#34C759]" />
                   <span>Visibility: {weatherData.current.visibility} mi</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <Gauge className="w-4 h-4" />
+                <div className="flex items-center gap-2 text-sm text-[#4F4F4F]">
+                  <Gauge className="w-4 h-4 text-[#34C759]" />
                   <span>Pressure: {weatherData.current.pressure} inHg</span>
                 </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <Sun className="w-4 h-4" />
+                <div className="flex items-center gap-2 text-sm text-[#4F4F4F]">
+                  <Sun className="w-4 h-4 text-[#34C759]" />
                   <span>UV Index: {weatherData.current.uvIndex}</span>
                 </div>
               </div>
@@ -205,26 +206,26 @@ export function WeatherPanel({ lat, lng, onAlertClick }: WeatherPanelProps) {
             {/* Active Alerts */}
             {activeAlerts.length > 0 && (
               <div className="space-y-2">
-                <h4 className="text-sm font-medium flex items-center gap-2">
-                  <AlertTriangle className="w-4 h-4" />
+                <h4 className="text-sm font-medium flex items-center gap-2 text-[#212121]">
+                  <AlertTriangle className="w-4 h-4 text-[#34C759]" />
                   Active Weather Alerts ({activeAlerts.length})
                 </h4>
                 <div className="space-y-2">
                   {activeAlerts.map((alert) => (
                     <div
                       key={alert.id}
-                      className={`p-3 rounded-lg border ${weatherService.getSeverityColor(alert.severity)} cursor-pointer hover:opacity-80 transition-opacity`}
+                      className={`p-3 rounded-[12px] border ${weatherService.getSeverityColor(alert.severity)} cursor-pointer hover:shadow-[0_6px_16px_rgba(0,0,0,0.1)] transition-all`}
                       onClick={() => onAlertClick?.(alert)}
                     >
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-lg">{weatherService.getTypeIcon(alert.type)}</span>
-                        <span className="text-sm font-medium">{alert.title}</span>
-                        <Badge variant={alert.severity === 'extreme' || alert.severity === 'severe' ? 'destructive' : 'outline'} className="text-xs">
+                        <span className="text-sm font-medium text-[#212121]">{alert.title}</span>
+                        <Badge variant={alert.severity === 'extreme' || alert.severity === 'severe' ? 'destructive' : 'outline'} className="text-xs rounded-[6px]">
                           {alert.severity.toUpperCase()}
                         </Badge>
                       </div>
-                      <p className="text-xs opacity-75">{alert.description}</p>
-                      <div className="flex items-center gap-4 mt-2 text-xs opacity-60">
+                      <p className="text-xs text-[#4F4F4F]">{alert.description}</p>
+                      <div className="flex items-center gap-4 mt-2 text-xs text-[#6B6B6B]">
                         <span>Source: {alert.source}</span>
                         <span>Until: {weatherService.formatAlertTime(alert.endTime)}</span>
                       </div>

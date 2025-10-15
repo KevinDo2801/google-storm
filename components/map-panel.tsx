@@ -870,15 +870,15 @@ export function MapPanel({
 
   if (mapError) {
     return (
-      <div className="h-full relative bg-muted">
+      <div className="h-full relative bg-[#F8F9FA]">
         <div className="h-full flex items-center justify-center">
-          <div className="text-center text-muted-foreground max-w-md mx-auto p-6">
-            <MapPin className="w-16 h-16 mx-auto mb-4 opacity-50" />
-            <p className="text-lg font-medium text-destructive mb-2">Map Unavailable</p>
+          <div className="text-center text-[#4F4F4F] max-w-md mx-auto p-6">
+            <MapPin className="w-16 h-16 mx-auto mb-4 opacity-50 text-[#34C759]" />
+            <p className="text-lg font-medium text-[#dc2626] mb-2">Map Unavailable</p>
             <p className="text-sm mb-4">{mapError}</p>
-            <div className="text-xs bg-muted p-3 rounded border">
-              <p className="font-medium mb-2">To fix this:</p>
-              <ol className="text-left space-y-1">
+            <div className="text-xs bg-white p-3 rounded-[12px] border border-[#E0E0E0] shadow-[0_4px_12px_rgba(0,0,0,0.08)]">
+              <p className="font-medium mb-2 text-[#212121]">To fix this:</p>
+              <ol className="text-left space-y-1 text-[#4F4F4F]">
                 <li>1. Get a Google Maps API key from Google Cloud Console</li>
                 <li>2. Add it to your .env.local file as NEXT_PUBLIC_GOOGLE_MAPS_API_KEY</li>
                 <li>3. Restart your development server</li>
@@ -891,23 +891,23 @@ export function MapPanel({
         {markers.length > 0 && (
           <div className="absolute top-4 left-4 right-4 space-y-2 max-h-64 overflow-y-auto">
             {markers.map((marker) => (
-              <Card key={marker.id} className="p-4 bg-card/95 backdrop-blur-sm">
+              <Card key={marker.id} className="p-4 bg-white/95 backdrop-blur-sm rounded-[16px] border-[#E0E0E0] shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.1)] transition-all">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
-                    <h3 className="font-semibold text-card-foreground mb-1">{marker.name}</h3>
+                    <h3 className="font-semibold text-[#212121] mb-1">{marker.name}</h3>
                     <div className="flex items-center gap-2 mb-2">
                       <Badge className={getTypeColor(marker.type)}>{getTypeLabel(marker.type)}</Badge>
                     </div>
                     {marker.address && (
                       <div className="flex items-center gap-1 mb-1">
-                        <MapPin className="w-4 h-4" />
-                        <span className="text-sm text-muted-foreground">{marker.address}</span>
+                        <MapPin className="w-4 h-4 text-[#34C759]" />
+                        <span className="text-sm text-[#4F4F4F]">{marker.address}</span>
                       </div>
                     )}
                     {marker.openNow !== undefined && (
                       <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span className={`text-sm ${marker.openNow ? "text-primary" : "text-muted-foreground"}`}>
+                        <Clock className="w-4 h-4 text-[#34C759]" />
+                        <span className={`text-sm ${marker.openNow ? "text-[#34C759]" : "text-[#4F4F4F]"}`}>
                           {marker.openNow ? "Open now" : "Closed"}
                         </span>
                       </div>
@@ -923,16 +923,16 @@ export function MapPanel({
   }
 
   return (
-    <div className={`h-full relative bg-muted transition-all duration-300 ${emergencyMode ? 'border-4 border-red-500 shadow-lg shadow-red-500/20' : ''}`}>
+    <div className={`h-full relative bg-[#F8F9FA] transition-all duration-300 ${emergencyMode ? 'border-4 border-red-500 shadow-lg shadow-red-500/20' : ''}`}>
       {/* Google Maps Container */}
       <div ref={mapRef} className="w-full h-full" />
 
       {/* Loading Overlay */}
       {isLoading && (
-        <div className="absolute inset-0 bg-background/80 flex items-center justify-center">
+        <div className="absolute inset-0 bg-white/80 flex items-center justify-center">
           <div className="text-center">
-            <Loader2 className="w-8 h-8 animate-spin mx-auto mb-2" />
-            <p className="text-sm text-muted-foreground">Loading map...</p>
+            <Loader2 className="w-8 h-8 animate-spin mx-auto mb-2 text-[#34C759]" />
+            <p className="text-sm text-[#4F4F4F]">Loading map...</p>
           </div>
         </div>
       )}
@@ -940,7 +940,7 @@ export function MapPanel({
       {/* Emergency Mode Banner */}
       {emergencyMode && (
         <div className="absolute top-16 right-4 max-w-sm z-20">
-          <Card className="p-4 bg-red-50/95 backdrop-blur-sm border-red-200 shadow-lg">
+          <Card className="p-4 bg-red-50/95 backdrop-blur-sm border-red-200 shadow-[0_4px_12px_rgba(0,0,0,0.08)] rounded-[16px]">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
               <h3 className="font-semibold text-red-900 flex items-center gap-2">
@@ -957,7 +957,7 @@ export function MapPanel({
       {/* Hurricane Info Panel */}
       {hurricaneMode && hurricaneData.length > 0 && (
         <div className="absolute top-16 left-4 max-w-sm z-20">
-          <Card className="p-4 bg-orange-50/95 backdrop-blur-sm border-orange-200 shadow-lg">
+          <Card className="p-4 bg-orange-50/95 backdrop-blur-sm border-orange-200 shadow-[0_4px_12px_rgba(0,0,0,0.08)] rounded-[16px]">
             <div className="mb-3">
               <h3 className="font-semibold text-orange-900 mb-1 flex items-center gap-2">
                 🌀 Active Hurricanes ({hurricaneData.length})
@@ -1002,20 +1002,20 @@ export function MapPanel({
       {/* Resource Summary Panel */}
       {!hurricaneMode && markers.length > 0 && showResultsPanel && (
         <div className="absolute top-16 left-4 max-w-sm">
-          <Card className="p-4 bg-card/95 backdrop-blur-sm border shadow-lg">
+          <Card className="p-4 bg-white/95 backdrop-blur-sm border border-[#E0E0E0] shadow-[0_4px_12px_rgba(0,0,0,0.08)] rounded-[16px]">
             <div className="mb-3 flex items-start justify-between">
               <div>
-                <h3 className="font-semibold text-card-foreground mb-1">
+                <h3 className="font-semibold text-[#212121] mb-1">
                   Found {markers.length} Resource{markers.length !== 1 ? "s" : ""}
                 </h3>
-                <p className="text-xs text-muted-foreground">Click markers for details</p>
+                <p className="text-xs text-[#4F4F4F]">Click markers for details</p>
               </div>
               {onCloseResultsPanel && (
                 <Button
                   variant="ghost"
                   size="icon"
                   onClick={onCloseResultsPanel}
-                  className="h-6 w-6 text-muted-foreground hover:text-foreground"
+                  className="h-6 w-6 text-[#4F4F4F] hover:text-[#212121] rounded-[6px]"
                 >
                   <X className="h-4 w-4" />
                 </Button>
@@ -1026,7 +1026,7 @@ export function MapPanel({
               {markers.slice(0, 3).map((marker) => (
                 <div
                   key={marker.id}
-                  className="flex items-center gap-2 p-2 rounded bg-muted/50 hover:bg-muted/70 transition-colors cursor-pointer"
+                  className="flex items-center gap-2 p-2 rounded-[8px] bg-[#F8F9FA] hover:bg-[#E0E0E0] transition-colors cursor-pointer"
                   onClick={() => {
                     // Find and click the corresponding marker
                     const markerElement = markersRef.current.find((m) => m.getTitle() === marker.name)
@@ -1036,15 +1036,15 @@ export function MapPanel({
                   }}
                 >
                   <div
-                    className={`w-3 h-3 rounded-full ${marker.type === "shelter" ? "bg-red-500" : marker.type === "food_bank" ? "bg-blue-500" : "bg-green-500"}`}
+                    className={`w-3 h-3 rounded-full ${marker.type === "shelter" ? "bg-red-500" : marker.type === "food_bank" ? "bg-blue-500" : "bg-[#34C759]"}`}
                   ></div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-card-foreground truncate">{marker.name}</p>
-                    <p className="text-xs text-muted-foreground">{getTypeLabel(marker.type)}</p>
+                    <p className="text-sm font-medium text-[#212121] truncate">{marker.name}</p>
+                    <p className="text-xs text-[#4F4F4F]">{getTypeLabel(marker.type)}</p>
                   </div>
                   {marker.openNow !== undefined && (
                     <div
-                      className={`w-2 h-2 rounded-full ${marker.openNow ? "bg-green-500" : "bg-red-500"}`}
+                      className={`w-2 h-2 rounded-full ${marker.openNow ? "bg-[#34C759]" : "bg-red-500"}`}
                       title={marker.openNow ? "Open now" : "Closed"}
                     ></div>
                   )}
@@ -1052,7 +1052,7 @@ export function MapPanel({
               ))}
 
               {markers.length > 3 && (
-                <p className="text-xs text-muted-foreground text-center pt-2">
+                <p className="text-xs text-[#4F4F4F] text-center pt-2">
                   +{markers.length - 3} more resource{markers.length - 3 !== 1 ? "s" : ""}
                 </p>
               )}

@@ -65,7 +65,7 @@ export function WeatherAlertBanner({ lat, lng, onDismiss }: WeatherAlertBannerPr
   }
 
   return (
-    <div className="space-y-3 p-4 bg-background border-b border-border">
+    <div className="space-y-3 p-4 bg-white border-b border-[#E0E0E0]">
       {urgentAlerts.length > 0 && (
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-sm font-medium text-red-600">
@@ -73,25 +73,25 @@ export function WeatherAlertBanner({ lat, lng, onDismiss }: WeatherAlertBannerPr
             URGENT WEATHER ALERTS
           </div>
           {urgentAlerts.map((alert) => (
-            <Alert key={alert.id} className={`border-l-4 border-l-red-500 ${weatherService.getSeverityColor(alert.severity)}`}>
+            <Alert key={alert.id} className={`border-l-4 border-l-red-500 ${weatherService.getSeverityColor(alert.severity)} rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.08)]`}>
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <AlertTitle className="flex items-center gap-2">
+                  <AlertTitle className="flex items-center gap-2 text-[#212121]">
                     <span className="text-lg">{weatherService.getTypeIcon(alert.type)}</span>
                     {alert.title}
-                    <Badge variant="destructive" className="text-xs">
+                    <Badge variant="destructive" className="text-xs bg-[#dc2626] rounded-[6px]">
                       {alert.severity.toUpperCase()}
                     </Badge>
                   </AlertTitle>
                   <AlertDescription className="mt-2">
-                    <p className="text-sm">{alert.description}</p>
-                    <div className="mt-2 text-xs opacity-75">
+                    <p className="text-sm text-[#4F4F4F]">{alert.description}</p>
+                    <div className="mt-2 text-xs text-[#6B6B6B]">
                       <p><strong>Source:</strong> {alert.source}</p>
                       <p><strong>Areas:</strong> {alert.areas.join(', ')}</p>
                       <p><strong>Valid until:</strong> {weatherService.formatAlertTime(alert.endTime)}</p>
                     </div>
                     {alert.type === 'hurricane' && (
-                      <div className="mt-3 p-2 bg-red-100 rounded text-xs">
+                      <div className="mt-3 p-2 bg-red-100 rounded-[6px] text-xs">
                         <strong>🚨 Hurricane Safety:</strong> Evacuate if ordered. Secure outdoor items. Have emergency supplies ready.
                       </div>
                     )}
@@ -101,7 +101,7 @@ export function WeatherAlertBanner({ lat, lng, onDismiss }: WeatherAlertBannerPr
                   variant="ghost"
                   size="sm"
                   onClick={() => handleDismiss(alert.id)}
-                  className="ml-2 h-8 w-8 p-0"
+                  className="ml-2 h-8 w-8 p-0 rounded-[6px]"
                 >
                   <X className="w-4 h-4" />
                 </Button>
@@ -118,19 +118,19 @@ export function WeatherAlertBanner({ lat, lng, onDismiss }: WeatherAlertBannerPr
             HURRICANE WATCH
           </div>
           {hurricaneAlerts.map((alert) => (
-            <Alert key={alert.id} className={`border-l-4 border-l-orange-500 ${weatherService.getSeverityColor(alert.severity)}`}>
+            <Alert key={alert.id} className={`border-l-4 border-l-orange-500 ${weatherService.getSeverityColor(alert.severity)} rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.08)]`}>
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <AlertTitle className="flex items-center gap-2">
+                  <AlertTitle className="flex items-center gap-2 text-[#212121]">
                     <span className="text-lg">{weatherService.getTypeIcon(alert.type)}</span>
                     {alert.title}
-                    <Badge variant="outline" className="text-xs">
+                    <Badge variant="outline" className="text-xs border-[#34C759] text-[#34C759] rounded-[6px]">
                       {alert.severity.toUpperCase()}
                     </Badge>
                   </AlertTitle>
                   <AlertDescription className="mt-2">
-                    <p className="text-sm">{alert.description}</p>
-                    <div className="mt-2 text-xs opacity-75">
+                    <p className="text-sm text-[#4F4F4F]">{alert.description}</p>
+                    <div className="mt-2 text-xs text-[#6B6B6B]">
                       <p><strong>Source:</strong> {alert.source}</p>
                       <p><strong>Areas:</strong> {alert.areas.join(', ')}</p>
                       <p><strong>Valid until:</strong> {weatherService.formatAlertTime(alert.endTime)}</p>
@@ -141,7 +141,7 @@ export function WeatherAlertBanner({ lat, lng, onDismiss }: WeatherAlertBannerPr
                   variant="ghost"
                   size="sm"
                   onClick={() => handleDismiss(alert.id)}
-                  className="ml-2 h-8 w-8 p-0"
+                  className="ml-2 h-8 w-8 p-0 rounded-[6px]"
                 >
                   <X className="w-4 h-4" />
                 </Button>
@@ -155,26 +155,26 @@ export function WeatherAlertBanner({ lat, lng, onDismiss }: WeatherAlertBannerPr
         !weatherService.isUrgentAlert(alert) && !weatherService.isHurricaneRelated(alert)
       ).length > 0 && (
         <div className="space-y-2">
-          <div className="flex items-center gap-2 text-sm font-medium text-blue-600">
+          <div className="flex items-center gap-2 text-sm font-medium text-[#34C759]">
             <span className="text-lg">🌦️</span>
             WEATHER ALERTS
           </div>
           {activeAlerts.filter(alert => 
             !weatherService.isUrgentAlert(alert) && !weatherService.isHurricaneRelated(alert)
           ).map((alert) => (
-            <Alert key={alert.id} className={`${weatherService.getSeverityColor(alert.severity)}`}>
+            <Alert key={alert.id} className={`${weatherService.getSeverityColor(alert.severity)} rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.08)]`}>
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <AlertTitle className="flex items-center gap-2">
+                  <AlertTitle className="flex items-center gap-2 text-[#212121]">
                     <span className="text-lg">{weatherService.getTypeIcon(alert.type)}</span>
                     {alert.title}
-                    <Badge variant="outline" className="text-xs">
+                    <Badge variant="outline" className="text-xs border-[#34C759] text-[#34C759] rounded-[6px]">
                       {alert.severity.toUpperCase()}
                     </Badge>
                   </AlertTitle>
                   <AlertDescription className="mt-2">
-                    <p className="text-sm">{alert.description}</p>
-                    <div className="mt-2 text-xs opacity-75">
+                    <p className="text-sm text-[#4F4F4F]">{alert.description}</p>
+                    <div className="mt-2 text-xs text-[#6B6B6B]">
                       <p><strong>Source:</strong> {alert.source}</p>
                       <p><strong>Areas:</strong> {alert.areas.join(', ')}</p>
                       <p><strong>Valid until:</strong> {weatherService.formatAlertTime(alert.endTime)}</p>
@@ -185,7 +185,7 @@ export function WeatherAlertBanner({ lat, lng, onDismiss }: WeatherAlertBannerPr
                   variant="ghost"
                   size="sm"
                   onClick={() => handleDismiss(alert.id)}
-                  className="ml-2 h-8 w-8 p-0"
+                  className="ml-2 h-8 w-8 p-0 rounded-[6px]"
                 >
                   <X className="w-4 h-4" />
                 </Button>
@@ -196,7 +196,7 @@ export function WeatherAlertBanner({ lat, lng, onDismiss }: WeatherAlertBannerPr
       )}
 
       <div className="text-center">
-        <Button variant="outline" size="sm" asChild>
+        <Button variant="outline" size="sm" asChild className="rounded-[10px] border-[#34C759] text-[#34C759]">
           <a 
             href="https://www.weather.gov/mfl/" 
             target="_blank" 
