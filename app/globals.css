@@ -1,4 +1,7 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "tw-animate-css";
 
 /* Fix Google Places Autocomplete z-index in modals */
@@ -6,8 +9,6 @@
   z-index: 9999 !important;
   position: absolute !important;
 }
-
-@custom-variant dark (&:is(.dark *));
 
 /* <kevindo.dev> Design System - Sustainable Minimalism */
 :root {
@@ -74,46 +75,10 @@
   --shadow-navbar: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 
-@theme inline {
+/* Font definitions */
+* {
   --font-sans: 'Inter', 'Helvetica Neue', sans-serif;
   --font-mono: var(--font-geist-mono);
-  
-  --color-background: rgb(var(--background));
-  --color-foreground: rgb(var(--foreground));
-  --color-card: rgb(var(--card));
-  --color-card-foreground: rgb(var(--card-foreground));
-  --color-popover: rgb(var(--popover));
-  --color-popover-foreground: rgb(var(--popover-foreground));
-  --color-primary: rgb(var(--primary));
-  --color-primary-foreground: rgb(var(--primary-foreground));
-  --color-secondary: rgb(var(--secondary));
-  --color-secondary-foreground: rgb(var(--secondary-foreground));
-  --color-muted: rgb(var(--muted));
-  --color-muted-foreground: rgb(var(--muted-foreground));
-  --color-accent: rgb(var(--accent));
-  --color-accent-foreground: rgb(var(--accent-foreground));
-  --color-destructive: rgb(var(--destructive));
-  --color-destructive-foreground: rgb(var(--destructive-foreground));
-  --color-border: rgb(var(--border));
-  --color-input: rgb(var(--input));
-  --color-ring: rgb(var(--ring));
-  --color-chart-1: rgb(var(--chart-1));
-  --color-chart-2: rgb(var(--chart-2));
-  --color-chart-3: rgb(var(--chart-3));
-  --color-chart-4: rgb(var(--chart-4));
-  --color-chart-5: rgb(var(--chart-5));
-  --radius-sm: var(--radius-sm);
-  --radius-md: var(--radius-md);
-  --radius-lg: var(--radius-lg);
-  --radius-xl: var(--radius-xl);
-  --color-sidebar: rgb(var(--sidebar));
-  --color-sidebar-foreground: rgb(var(--sidebar-foreground));
-  --color-sidebar-primary: rgb(var(--sidebar-primary));
-  --color-sidebar-primary-foreground: rgb(var(--sidebar-primary-foreground));
-  --color-sidebar-accent: rgb(var(--sidebar-accent));
-  --color-sidebar-accent-foreground: rgb(var(--sidebar-accent-foreground));
-  --color-sidebar-border: rgb(var(--sidebar-border));
-  --color-sidebar-ring: rgb(var(--sidebar-ring));
 }
 
 @layer base {
